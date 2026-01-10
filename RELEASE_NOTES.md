@@ -1,6 +1,18 @@
-# 🔓 PDF Password Unlocker - Professional (v3.0)
+# 🔓 PDF Unlocker - Professional (v3.1)
 
-## 🆕 UI Overhaul & Branding
+## 💎 Pro Branding & Visuals
+- **Application Icon**: The executable now features a native, high-quality icon (`.ico`), making it look professional in Windows Explorer and the Taskbar.
+- **Pro Badge**: Introducing a "Verified Pro" gold shield badge in the UI header to signify the professional edition status.
+- **Taskbar Integration**: The application window now correctly displays the custom icon in the taskbar and title bar.
+
+## 🛠 Polish & Fixes
+- **Resource Management**: Optimized how image assets (Logo, Badge, Icon) are loaded and embedded.
+- **Build System**: integrated `winres` for native Windows resource compilation, ensuring proper metadata and icon embedding in the final binary.
+- **Layout Refinements**: Adjusted header metrics to perfectly balance the Logo (left) and Pro Badge (right).
+
+---
+
+# 🔓 PDF Password Unlocker - Professional (v3.0)
 - **New Logo Integration**: Added a custom, professional lock logo for stronger branding identity.
 - **Enhanced Typography**: Upgraded all fonts to larger, clearer Segoe UI weights for better readability.
 - **Spacious Layout**: Expanded window dimensions and improved spacing to prevent clutter.

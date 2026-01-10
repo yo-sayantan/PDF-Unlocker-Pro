@@ -13,12 +13,16 @@ use cracker::run_password_cracker;
 
 #[derive(Default, NwgUi)]
 pub struct PDFUnlockerApp {
+    #[nwg_resource(source_file: Some("assets/icon.ico"))]
+    window_icon: nwg::Icon,
+
     #[nwg_control(
         size: (800, 700),
         position: (200, 50),
         title: "🔓 PDF Unlocker - Professional",
         flags: "WINDOW|VISIBLE",
-        accept_files: true
+        accept_files: true,
+        icon: Some(&data.window_icon)
     )]
     #[nwg_events(OnWindowClose: [PDFUnlockerApp::exit])]
     window: nwg::Window,
@@ -41,16 +45,23 @@ pub struct PDFUnlockerApp {
     #[nwg_resource(family: "Consolas", size: 13)]
     console_font: nwg::Font,
 
+    #[nwg_resource(source_file: Some("assets/logo.png"))]
+    logo: nwg::Bitmap,
+
     #[nwg_layout(parent: window, spacing: 10, margin: [10, 10, 10, 10])]
     layout: nwg::GridLayout,
 
     // --- HEADER ---
+    #[nwg_control(bitmap: Some(&data.logo))]
+    #[nwg_layout_item(layout: layout, row: 0, col: 0, row_span: 2)]
+    logo_frame: nwg::ImageFrame,
+
     #[nwg_control(text: "🔓 PDF Unlocker Professional", font: Some(&data.title_font))]
-    #[nwg_layout_item(layout: layout, row: 0, col: 0, col_span: 6)]
+    #[nwg_layout_item(layout: layout, row: 0, col: 1, col_span: 4)]
     title_label: nwg::Label,
 
     #[nwg_control(text: "High-performance multi-threaded recovery tool. Fast, secure, and reliable.", font: Some(&data.subtitle_font))]
-    #[nwg_layout_item(layout: layout, row: 1, col: 0, col_span: 6)]
+    #[nwg_layout_item(layout: layout, row: 1, col: 1, col_span: 4)]
     subtitle_label: nwg::Label,
 
     // --- SECTION 1: PDF FILE (Stacked for length) ---

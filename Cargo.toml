@@ -1,6 +1,6 @@
 [package]
 name = "pdf_unlocker"
-version = "3.0.0"
+version = "3.1.0"
 authors = ["Sayantan <sayantanbiswas.mycareer@gmail.com>"]
 edition = "2021"
 description = "High-performance multi-threaded PDF password recovery tool with pattern matching."
@@ -25,3 +25,6 @@ opt-level = 3
 lto = true
 codegen-units = 1
 panic = "abort"
+
+[build-dependencies]
+winres = "0.1"
