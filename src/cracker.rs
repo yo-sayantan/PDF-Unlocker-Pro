@@ -7,7 +7,13 @@ use std::fs::{OpenOptions, rename};
 use std::io::Write;
 use std::path::Path;
 
-pub fn run_password_cracker(filename: &str, pattern: &str, num_threads: usize) -> Result<String, String> {
+pub fn run_password_cracker(
+    filename: &str, 
+    pattern: &str, 
+    num_threads: usize,
+    stop_flag: Arc<AtomicBool>,
+    progress_counter: Arc<AtomicU64>,
+) -> Result<String, String> {
     // Handle log file - rename if exists
     let log_filename = "password_attempts.log";
     if Path::new(log_filename).exists() {
@@ -108,7 +114,7 @@ pub fn run_password_cracker(filename: &str, pattern: &str, num_threads: usize) -
     
     // Process chunks in parallel
     (0..num_chunks).into_par_iter().for_each(|chunk_idx| {
-        if found.load(Ordering::Relaxed) {
+        if found.load(Ordering::Relaxed) || stop_flag.load(Ordering::Relaxed) {
             return;
         }
         
@@ -116,7 +122,7 @@ pub fn run_password_cracker(filename: &str, pattern: &str, num_threads: usize) -
         let end = (start + chunk_size as u64).min(total_combinations);
         
         for combo_idx in start..end {
-            if found.load(Ordering::Relaxed) {
+            if found.load(Ordering::Relaxed) || stop_flag.load(Ordering::Relaxed) {
                 return;
             }
             
@@ -134,6 +140,12 @@ pub fn run_password_cracker(filename: &str, pattern: &str, num_threads: usize) -
             
             // Log progress
             let attempt_num = attempts_counter.fetch_add(1, Ordering::Relaxed);
+            
+            // Update UI progress every 5000 attempts
+            if attempt_num % 5000 == 0 {
+                progress_counter.store(attempt_num, Ordering::Relaxed);
+            }
+
             if attempt_num % 10000 == 0 {
                 if let Ok(mut file) = log_file.lock() {
                     let _ = writeln!(file, "Progress: {} attempts, Current: {}", attempt_num, password);
@@ -164,6 +176,10 @@ pub fn run_password_cracker(filename: &str, pattern: &str, num_threads: usize) -
         }
     });
     
+    if stop_flag.load(Ordering::Relaxed) {
+        return Err("Operation stopped by user.".to_string());
+    }
+
     if found.load(Ordering::Relaxed) {
         Ok(found_password.lock().unwrap().clone())
     } else {
