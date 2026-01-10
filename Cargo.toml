@@ -1,0 +1,27 @@
+[package]
+name = "pdf_unlocker"
+version = "1.1.0"
+authors = ["Sayan <sayan@example.com>"]
+edition = "2021"
+description = "High-performance multi-threaded PDF password recovery tool with pattern matching."
+license = "MIT"
+repository = "https://github.com/Sayan/pdf-unlocker"
+
+[dependencies]
+lopdf = "0.32"
+anyhow = "1.0"
+rayon = "1.8"
+chrono = "0.4"
+num_cpus = "1.16"
+native-windows-gui = "1.0.13"
+native-windows-derive = "1.0.5"
+
+[[bin]]
+name = "pdf_unlocker"
+path = "src/main.rs"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"

@@ -1,0 +1,9 @@
+/target
+/dist
+*.log
+*.pdf
+!Account Summary.pdf
+.DS_Store
+Thumbs.db
+*.exe
+*.pdb
