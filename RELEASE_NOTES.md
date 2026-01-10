@@ -1,19 +1,29 @@
-# 🔓 PDF Password Unlocker - Elite Edition (v2.0)
+# 🔓 PDF Password Unlocker - Professional (v3.0)
 
-## 🆕 Major Updates
+## 🆕 UI Overhaul & Branding
+- **New Logo Integration**: Added a custom, professional lock logo for stronger branding identity.
+- **Enhanced Typography**: Upgraded all fonts to larger, clearer Segoe UI weights for better readability.
+- **Spacious Layout**: Expanded window dimensions and improved spacing to prevent clutter.
+- **Visual Cues**: Added color-coded unicode indicators to buttons (Start, Stop) for intuitive usage.
+- **Clear Logs**: Implemented a "CLEAR" button to easily reset the system activity log.
+
+## ✨ Features
+- **Inline Configuration**: Restructured input fields for threads and patterns to be inline with labels.
+- **Improved Guides**: Added detailed, non-intrusive pattern syntax guides directly on the main interface.
+- **Dynamic Threading**: Increased supported thread count recommendation in UI hints (up to 600).
+- **Log History**: System logs now append history rather than overwriting, allowing users to track multiple operations.
+
+## 🚀 Performance & Stability
+- **Stable Native Buttons**: Reverted to standard native button text stability to prevent crashes while maintaining visual distinction.
+- **Thread Safety**: Enhanced thread management for starting and stopping the cracking engine.
+
+*The Professional Edition represents a significant leap in usability and aesthetics.*
+
+---
+
+# 🔓 PDF Password Unlocker - Elite Edition (v2.0)
 - **Premium User Interface**: Completely redesigned with a modern, clear, and professional layout.
 - **Progress Tracking**: Added a real-time progress bar to visualize the cracking status.
 - **Stop Control**: New "STOP" button allows safely halting the engine at any time.
 - **Smart Hints**: Added explicit guide for pattern length matching (`length must match exact password length`).
 - **Log Console**: Integrated real-time system activity log with scrollable history.
-
-## 🚀 Performance
-- **Optimized Engine**: Refined multi-threading logic for smoother UI responsiveness during heavy loads.
-- **Reliable Timer**: Switched to a robust native timer implementation for accurate progress updates.
-
-## 🐛 Bug Fixes
-- Fixed UI text corruption and button sizing issues.
-- Resolved layout "crunching" on high-DPI displays.
-- Improved error handling and status feedback messages.
-
-*Upgrade to the Elite Edition for the ultimate recovery experience!*
