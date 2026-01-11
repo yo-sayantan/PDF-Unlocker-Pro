@@ -1,6 +1,6 @@
 [package]
 name = "pdf_unlocker"
-version = "1.1.0"
+version = "4.0.0"
 authors = ["Sayantan <sayantanbiswas.mycareer@gmail.com>"]
 edition = "2026"
 description = "High-performance multi-threaded PDF password recovery tool with pattern matching."
@@ -13,6 +13,11 @@ anyhow = "1.0"
 rayon = "1.8"
 chrono = "0.4"
 num_cpus = "1.16"
+clap = { version = "4.4", features = ["derive"] }
+ratatui = "0.26"
+crossterm = "0.27"
+
+[target.'cfg(windows)'.dependencies]
 native-windows-gui = "1.0.13"
 native-windows-derive = "1.0.5"
 
@@ -25,3 +30,6 @@ opt-level = 3
 lto = true
 codegen-units = 1
 panic = "abort"
+
+[build-dependencies]
+winres = "0.1"
