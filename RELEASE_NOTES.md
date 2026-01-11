@@ -1,3 +1,15 @@
+# 🔓 PDF Unlocker - Automated Edition (v5.0)
+
+## ☁️ Automated Cross-Platform Builds
+- **GitHub Actions Integration**: Added a full CI/CD pipeline (`.github/workflows/release.yml`).
+- **Auto-Release**: Pushing a tag (e.g., `v5.0`) to GitHub now automatically builds optimized binaries for:
+    - 🪟 Windows (`.exe`)
+    - 🍎 macOS (Universal Binary)
+    - 🐧 Linux (ELF Binary)
+- **Zero-Setup Running**: Users on macOS and Linux can now download the pre-compiled binary from GitHub Releases and run it immediately—**no Rust installation required**.
+
+---
+
 # 🔓 PDF Unlocker - Optimized Edition (v4.1)
 
 ## 📦 Build Optimizations
