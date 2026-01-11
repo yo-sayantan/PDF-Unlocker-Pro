@@ -6,8 +6,8 @@ A high-performance, multi-threaded PDF password recovery tool built with Rust an
 
 - **Multi-threaded Cracking**: Utilizes all available CPU cores for maximum speed.
 - **Pattern Matching**: Target specific password formats using a flexible pattern guide.
-- **Real-time Logging**: Tracks progress and success in `password_attempts.log`.
-- **User-friendly GUI**: Simple, intuitive Windows interface.
+- **Cross-Platform**: Runs on Windows (GUI/CLI), macOS (CLI/TUI), and Linux (CLI/TUI).
+- **User-friendly Interface**: Native GUI for Windows and rich Terminal UI for other platforms.
 
 ## 🚀 How to Use
 

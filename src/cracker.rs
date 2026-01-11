@@ -2,19 +2,16 @@ use lopdf::Document;
 use rayon::prelude::*;
 use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};
 use std::sync::{Arc, Mutex};
-use std::time::Instant;
-use std::fs::{OpenOptions, rename};
-use std::io::Write;
-use std::path::Path;
 
 pub fn run_password_cracker(
-    filename: &str, 
-    pattern: &str, 
+    filename: &str,
+    pattern: &str,
     num_threads: usize,
     stop_flag: Arc<AtomicBool>,
     progress_counter: Arc<AtomicU64>,
 ) -> Result<String, String> {
     // Handle log file - rename if exists
+    /*
     let log_filename = "password_attempts.log";
     if Path::new(log_filename).exists() {
         let timestamp = chrono::Local::now().format("%Y%m%d_%H%M%S");
@@ -37,7 +34,8 @@ pub fn run_password_cracker(
     writeln!(log_file.lock().unwrap(), "Pattern: {}", pattern).ok();
     writeln!(log_file.lock().unwrap(), "Threads: {}", num_threads).ok();
     writeln!(log_file.lock().unwrap(), "Started: {:?}\n", chrono::Local::now()).ok();
-    
+    */
+
     // Configure thread pool
     rayon::ThreadPoolBuilder::new()
         .num_threads(num_threads)
@@ -96,12 +94,12 @@ pub fn run_password_cracker(
         .map(|set| set.len() as u64)
         .product();
     
-    writeln!(log_file.lock().unwrap(), "Total combinations: {}\n", total_combinations).ok();
+    // writeln!(log_file.lock().unwrap(), "Total combinations: {}\n", total_combinations).ok();
     
     let chunk_size = (total_combinations / 1000).max(100).min(100_000) as usize;
     let num_chunks = ((total_combinations as f64) / (chunk_size as f64)).ceil() as u64;
     
-    let start_time = Instant::now();
+    // let start_time = Instant::now();
     let found = Arc::new(AtomicBool::new(false));
     let attempts_counter = Arc::new(AtomicU64::new(0));
     
@@ -146,11 +144,13 @@ pub fn run_password_cracker(
                 progress_counter.store(attempt_num, Ordering::Relaxed);
             }
 
+            /*
             if attempt_num % 10000 == 0 {
                 if let Ok(mut file) = log_file.lock() {
                     let _ = writeln!(file, "Progress: {} attempts, Current: {}", attempt_num, password);
                 }
             }
+            */
             
             let mut doc = doc_template.clone();
             
@@ -158,6 +158,7 @@ pub fn run_password_cracker(
                 found.store(true, Ordering::SeqCst);
                 *found_password_clone.lock().unwrap() = password.clone();
                 
+                /*
                 if let Ok(mut file) = log_file.lock() {
                     let _ = writeln!(file, "\n{}", "=".repeat(60));
                     let _ = writeln!(file, "*** SUCCESS! PASSWORD FOUND! ***");
@@ -168,6 +169,7 @@ pub fn run_password_cracker(
                     let _ = writeln!(file, "Time elapsed: {:.2?}", start_time.elapsed());
                     let _ = writeln!(file, "Attempts made: {}", attempt_num);
                 }
+                */
                 
                 let output_path = filename.replace(".pdf", "_unlocked.pdf");
                 let _ = doc.save(output_path);

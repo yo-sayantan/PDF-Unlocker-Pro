@@ -1,3 +1,24 @@
+# 🔓 PDF Unlocker - Universal Edition (v4.0)
+
+## 🌍 Cross-Platform Support
+- **MacOS & Linux**: Now fully compatible! Run the application natively on macOS and Linux terminals.
+- **Universal Binary**: The same codebase now smartly adapts to the operating system it's running on.
+
+## 🖥️ Terminal User Interface (TUI)
+- **Rich Dashboard**: For non-GUI environments (and Windows CLI), a beautiful new terminal dashboard has been added.
+- **Visual Feedback**: Features real-time progress bars, speed stats (attempts/sec), and status logs directly in your terminal.
+- **Grid Layout**: New organized grid design displays Target File, Pattern, and Engine stats clearly.
+- **Interactive**: Clean, responsive interface powered by `ratatui`.
+
+## ⚡ CLI & GUI Hybrid
+- **Windows**: Best of both worlds. Run normally for the classic Native GUI, or run with arguments to instantly switch to the high-performance CLI/TUI mode.
+- **Command Line Arguments**: Added support for standard arguments:
+  - `-i` / `--input`: Path to PDF file.
+  - `-p` / `--pattern`: Password pattern.
+  - `-t` / `--threads`: Number of threads (Optional, default: 150).
+
+---
+
 # 🔓 PDF Unlocker - Professional (v3.1)
 
 ## 💎 Pro Branding & Visuals
