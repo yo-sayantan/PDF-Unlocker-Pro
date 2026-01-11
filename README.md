@@ -40,6 +40,25 @@ cargo build --release
 
 The executable will be located in `target/release/pdf_unlocker.exe`.
 
+## 🍎 Running on macOS & Linux
+
+If you downloaded the binary from GitHub Releases:
+
+1.  **Open Terminal**.
+2.  Navigate to the download folder:
+    ```bash
+    cd ~/Downloads
+    ```
+3.  **Make it executable** (Required):
+    ```bash
+    chmod +x pdf_unlocker
+    ```
+4.  **Run it**:
+    ```bash
+    ./pdf_unlocker
+    ```
+    *Note: On macOS, if you see a security warning, Go to System Settings > Privacy & Security and click "Open Anyway".*
+
 ## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
