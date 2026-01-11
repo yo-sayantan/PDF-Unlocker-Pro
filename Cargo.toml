@@ -2,7 +2,7 @@
 name = "pdf_unlocker"
 version = "4.0.0"
 authors = ["Sayantan <sayantanbiswas.mycareer@gmail.com>"]
-edition = "2021"
+edition = "2026"
 description = "High-performance multi-threaded PDF password recovery tool with pattern matching."
 license = "MIT"
 repository = "https://github.com/yo-sayantan/PDF-Unlocker-Pro"
