@@ -1,6 +1,6 @@
 [package]
 name = "pdf_unlocker"
-version = "4.0.0"
+version = "4.1.0"
 authors = ["Sayantan <sayantanbiswas.mycareer@gmail.com>"]
 edition = "2021"
 description = "High-performance multi-threaded PDF password recovery tool with pattern matching."

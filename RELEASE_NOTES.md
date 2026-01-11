@@ -1,3 +1,12 @@
+# 🔓 PDF Unlocker - Optimized Edition (v4.1)
+
+## 📦 Build Optimizations
+- **Reduced Binary Size**: Debug symbols are now automatically stripped from the release binary, resulting in a significantly smaller executable.
+- **Cleaner Workspace**: Disabled incremental compilation for release builds to minimize the number of intermediate folders and files generated in the `target` directory.
+- **Production Ready**: The build process is now tuned for efficient, standalone distribution.
+
+---
+
 # 🔓 PDF Unlocker - Universal Edition (v4.0)
 
 ## 🌍 Cross-Platform Support
