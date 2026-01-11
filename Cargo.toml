@@ -1,11 +1,11 @@
 [package]
 name = "pdf_unlocker"
 version = "1.1.0"
-authors = ["Sayan <sayan@example.com>"]
-edition = "2021"
+authors = ["Sayantan <sayantanbiswas.mycareer@gmail.com>"]
+edition = "2026"
 description = "High-performance multi-threaded PDF password recovery tool with pattern matching."
 license = "MIT"
-repository = "https://github.com/Sayan/pdf-unlocker"
+repository = "https://github.com/yo-sayantan/PDF-Unlocker-Pro"
 
 [dependencies]
 lopdf = "0.32"
